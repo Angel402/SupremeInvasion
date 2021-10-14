@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CollisionPlayer : MonoBehaviour
 {
-    [SerializeField] private PlayerFacade _playerFacade;
+    [SerializeField] private Player _player;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

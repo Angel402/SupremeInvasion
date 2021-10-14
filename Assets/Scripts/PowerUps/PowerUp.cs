@@ -5,8 +5,8 @@ namespace powerUps
 {
     public abstract class PowerUp : MonoBehaviour
     {
-        [SerializeField] private int id;
-        public int Id => id;
+        [SerializeField] private string id;
+        public string Id => id;
     }
 }
 

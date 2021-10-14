@@ -2,27 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.iOS;
 
 public class Shot : MonoBehaviour
 {
     [SerializeField] private Bullet bulletPrefab;
-    [SerializeField] private GameObject _shotGO;
-    private float _bulletSpeed;
+    public float bulletSpeed = 0;
     
-    public void Create(Vector3 posicion, int numberOfBullets)
+    public void Create(Vector3 position, int numberOfBullets)
     {
-        _shotGO = gameObject;
-        _shotGO = Instantiate(gameObject);
-        _shotGO.transform.position = new Vector3(posicion.x, posicion.y, 0);
-        CreateBullets(_shotGO,posicion,numberOfBullets);
+        var shot = Instantiate(gameObject);
+        transform.position = new Vector3(position.x, position.y, 0);
+        CreateBullets(shot,position,numberOfBullets);
     }
 
-    private void CreateBullets(GameObject shotGO, Vector3 posicion, int numberOfBullets)
+    private void CreateBullets(GameObject shotGO, Vector3 position1, int numberOfBullets)
     {
         for (var i = 0; i < numberOfBullets; i++)
         {
             var bulletGO = Instantiate(bulletPrefab.gameObject, shotGO.transform, true);
-            bulletGO.transform.position = new Vector3(posicion.x+(0.13f*i), posicion.y+1, 0);
+            bulletGO.transform.position = new Vector3(position1.x+(0.13f*i), position1.y+1, 0);
         }
 
         var position = shotGO.transform.position;
@@ -30,16 +29,8 @@ public class Shot : MonoBehaviour
         shotGO.transform.position = position;
     }
 
-    public void SetBulletSpeed (float bulletSpeed)
-    {
-        _bulletSpeed = bulletSpeed;
-    }
-    
     private void Update()
     {
-        if (_shotGO != null)
-        {
-            _shotGO.gameObject.transform.Translate(new Vector3(0, _bulletSpeed));
-        }
+        gameObject.transform.Translate(new Vector3(0, bulletSpeed));
     }
 }

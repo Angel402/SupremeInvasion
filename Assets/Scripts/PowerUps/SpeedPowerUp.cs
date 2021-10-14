@@ -1,10 +1,4 @@
-﻿using System;
-using UnityEngine;
-
-namespace powerUps
+﻿namespace powerUps
 {
-    public class SpeedPowerUp : PowerUp
-    {
-        
-    }
+    public class SpeedPowerUp : PowerUp {}
 }
