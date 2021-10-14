@@ -32,5 +32,6 @@ public class Shot : MonoBehaviour
     private void Update()
     {
         gameObject.transform.Translate(new Vector3(0, bulletSpeed));
+        if(transform.childCount == 0) Destroy(gameObject);
     }
 }

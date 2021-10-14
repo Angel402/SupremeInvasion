@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Shot shot;
     [SerializeField] private int bulletsAmount = 1;
     [SerializeField] private float bulletsSpeed = 1;
+
+    public float BulletsSpeed => bulletsSpeed;
     private void Awake()
     {
         //Cursor.visible = false;
@@ -20,7 +22,8 @@ public class Player : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             shot.bulletSpeed = bulletsSpeed;
-            shot.Create(transform.position, bulletsAmount);
+            var position = transform.position;
+            shot.Create(new Vector3(position.x, position.y+1, position.x), bulletsAmount);
         }
     }
 

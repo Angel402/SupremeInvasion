@@ -1,19 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Enemies
 {
-    public abstract class Enemy
+    public abstract class Enemy : MonoBehaviour
     {
-        [SerializeField] private Shot shot;
-        [SerializeField] private int bulletsAmount;
-        [SerializeField] private float bulletsSpeed;
+        [SerializeField] protected Shot shot;
         [SerializeField] private string id;
-
+        protected int health;
+        protected float bulletsSpeed = -0.01f;
         public string ID => id;
 
-        public class DefaultEnemy : Enemy
+        private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.CompareTag("Shot")) {TakeDamage(other.gameObject);};
             
         }
+
+        protected abstract void TakeDamage(GameObject enemy);
     }
 }

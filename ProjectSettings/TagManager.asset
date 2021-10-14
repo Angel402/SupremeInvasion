@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ReplaceBackgroundCollisioner
   - Shot
+  - EnemyShot
+  - Enemy
   layers:
   - Default
   - TransparentFX
