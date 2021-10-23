@@ -9,7 +9,7 @@ namespace Enemies
         [SerializeField] private string id;
         protected int health;
         protected float bulletsSpeed = -0.01f;
-        public string ID => id;
+        public string Id => id;
 
         private void OnTriggerEnter2D(Collider2D other)
         {

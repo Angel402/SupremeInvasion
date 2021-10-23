@@ -1,13 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using static UnityEngine.InputSystem.Mouse;
 
 namespace UI
 {
     public class MainMenu : MonoBehaviour
 
     {
+        /*private void Update()
+        {
+            Debug.Log((current.position.x.ReadValue() - _latsMousePosition.x)/1920*17.78f - 8.89f + (current.position.y.ReadValue() - _latsMousePosition.y)/1080*10-5);
+        }
+        */
+
         [SerializeField] private Animator animator;
         public void FadeIn()
         {

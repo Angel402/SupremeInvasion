@@ -138,6 +138,7 @@ MonoBehaviour:
   shot: {fileID: 2887886915957385205, guid: 84e27ccdb4dc04446bb50dac166754e2, type: 3}
   id: DefaultEnemy
   animator: {fileID: 7339220748693423440}
+  _powerUpsConfiguration: {fileID: 11400000, guid: c241c7bcc7fb8d7419ef5f4adf3d698f, type: 2}
 --- !u!95 &7339220748693423440
 Animator:
   serializedVersion: 3

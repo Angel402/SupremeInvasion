@@ -15,4 +15,7 @@ public class GameFacade : MonoBehaviour
     {
         _constantBackgroundMovement.MoveBackground(backgroundGO);
     }
+    
+    
+    
 }

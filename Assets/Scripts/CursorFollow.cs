@@ -15,36 +15,19 @@ public class CursorFollow : MonoBehaviour
         _latsMousePosition = current.position.ReadValue();
     }
 
-    private void Start()
-    {
-        SetFirstTimePositionFromMouse();
-    }
-
     private void Update()
     {
-        SetPlayerPostionFromMouse();
+        SetPlayerPositionFromMouse();
     }
 
-    private void SetPlayerPostionFromMouse()
-    {
-        _mouseOffset.x = (current.position.x.ReadValue() - _latsMousePosition.x)/1920*17.78f;
-        _mouseOffset.y = (current.position.y.ReadValue() - _latsMousePosition.y)/1080*10;
-        _latsMousePosition = current.position.ReadValue();
-        var transform1 = transform;
-        var playerPosition = transform1.position;
-        playerPosition.x += _mouseOffset.x;
-        playerPosition.y += _mouseOffset.y;
-        transform1.position = playerPosition;
-        _mouseOffset = Vector2.zero;
-    }
-
-    private void SetFirstTimePositionFromMouse()
+    private void SetPlayerPositionFromMouse()
     {
         var transform1 = transform;
         var playerPosition = transform1.position;
-        playerPosition.x = (current.position.x.ReadValue()) * 17.78f - 8.89f;
-        playerPosition.y = (current.position.y.ReadValue()) * 10 - 5;
+        
+        
+        playerPosition.x = current.position.x.ReadValue()/1920*17.78f - 8.89f;
+        playerPosition.y = current.position.y.ReadValue()/1080*10-5;
         transform1.position = playerPosition;
     }
-    
 }
