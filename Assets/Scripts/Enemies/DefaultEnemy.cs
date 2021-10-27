@@ -3,13 +3,13 @@ using System.Collections;
 using powerUps;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 namespace Enemies
 {
     public class DefaultEnemy : Enemy
     {
         [SerializeField] private Animator animator;
-        private static readonly int IsDeath = Animator.StringToHash("isDeath");
         private PowerUpsFactory _powerUpsFactory;
         [SerializeField] private PowerUpsConfiguration _powerUpsConfiguration;
 
@@ -45,6 +45,10 @@ namespace Enemies
 
         protected override void TakeDamage(GameObject enemy)
         {
+            var sequence = DOTween.Sequence();
+            sequence.Insert(0, gameObject.GetComponent<SpriteRenderer>().DOColor(Color.red, 0.1f));
+            sequence.Insert(0, gameObject.GetComponent<Transform>().DOShakePosition(.4f, .1f, 100));
+            sequence.Insert(0.1f, gameObject.GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f));
             if (health <= 1)
             {
                 animator.SetBool("isDeath",true);

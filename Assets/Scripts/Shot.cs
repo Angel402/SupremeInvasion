@@ -20,7 +20,7 @@ public class Shot : MonoBehaviour
         for (var i = 0; i < numberOfBullets; i++)
         {
             var bulletGO = Instantiate(bulletPrefab.gameObject, shotGO.transform, true);
-            bulletGO.transform.position = new Vector3(position1.x+(0.13f*i), position1.y+1, 0);
+            bulletGO.transform.position = new Vector3(position1.x+(0.13f*i), position1.y, 0);
         }
 
         var position = shotGO.transform.position;

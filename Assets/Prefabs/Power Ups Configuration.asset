@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fed70ff8e7b4c399e1e80840685b584, type: 3}
   m_Name: Power Ups Configuration
   m_EditorClassIdentifier: 
-  _powerUps: []
+  _powerUps:
+  - {fileID: 4824595991844767892, guid: 1acc0b26bc6885c498c0efb9e2ab311c, type: 3}
+  - {fileID: 7330144634590632852, guid: 5561e5199e27a744eb959298b19463ed, type: 3}
